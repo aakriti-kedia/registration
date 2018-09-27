@@ -1,0 +1,27 @@
+table,tr,td
+{
+	width:100%;
+	border:1px solid black;
+	border-collapse: collapse;
+}
+div
+{
+	text-align: center;
+}
+#a
+{
+	width:10%;
+}
+#headrow
+{
+	font-family: "Arial";
+	font-weight: bold;
+}
+#d
+{
+	width: 15%;
+}
+#n
+{
+	width:25%;
+}

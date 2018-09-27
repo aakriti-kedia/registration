@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>REGISTRATION DETAILS</title>
+	<script type="text/javascript" src='//code.jquery.com/jquery-1.11.2.min.js'></script>
+	<link rel='stylesheet' href='/css/registrationpagestyle.css' type="text/css">
+	
+</head>
+<body>
+<div><h1>TOTAL NO OF REGISTRATIONS: <%=recno%>
+</h1></div>
+<div>
+<% if(recno>0) 
+	{
+		%>
+	
+<table  style='width:100%'>
+	
+	<tr id='headrow'>
+	
+		<th id='a'>S.NO</td>
+		<th id='n'>NAME</td>
+		<th id='n'>EMAIL</td>
+		<th id='n' >MOB NO</td>
+		<th id='d'>DOB</td>
+		<th></th>
+		<th></th>
+		</b>
+	
+	</tr>
+	</h1>
+	<%
+
+	var x=1;
+	data.forEach(function(item)
+	{
+
+	%>
+	<tr>
+	
+		<td id='a'><%=x%></td>
+		<td id='n'><%=  item.name  %></td>
+		<td id='n'><%=  item.email %></td>
+		<td id='n'><%=  item.mob  %></td>
+		<td id='d'><%=  item.dob %></td>
+		<td> 
+		
+		<button class='delbutton' id='delete' name='<%=item._id%>' onclick="alert('Data deleted successfully');" >DELETE</button>
+		<a href="/editregistration/<%=item._id%>">
+		<button class='editbutton' id='edit' name='<%=item._id%>'>EDIT</button></a>
+	</tr>
+	<% 
+	x+=1;
+	}); 
+	%>
+</table>
+
+<% }
+else 
+	{
+		%>
+		<h1>No records found</h1>
+		<%
+	}
+	%>
+
+	<a href="/home"><button>BACK</button></a>
+
+	 <script type="text/javascript">
+
+	$(function()
+	{
+		$(".delbutton").on('click',function()
+		{
+			var name=$(this).attr("name");
+			 // console.log('name=',name);
+			$.ajax({
+				type:'DELETE',
+				url:'/registration/'+ name,
+				success:function(data){
+					 // console.log('data='+data);
+					location.reload();
+				}
+			});
+		});
+		
+	});
+	// $(function()
+	// {
+
+	// 	$(".editbutton").on('click',function()
+	// 	{
+	// 		// $('#delete').click();
+
+	// 		var name=$(this).attr("name");
+	// 		$.ajax
+	// 		({
+	// 			type:'POST',
+	// 			url:'/editregistration',
+	// 			success:function(data)
+	// 			{
+	// 				location.href='/editregistration';
+	// 			}
+	// 		});
+	// 	});
+	// });
+	</script>
+
+</div>
+</body>
+</html>
+

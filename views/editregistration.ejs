@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>REGISTRATION UPDATE</title>
+	<link href='/css/styleregistration.css' type="text/css" rel='stylesheet'>
+</head>
+<body style='text-align:center;'>
+
+<h1>UPDATE REGISTRATION</h1>
+
+<form id='updation-form' style='font-size:20px;'  method="POST" action="/editregistration" onsubmit="alert('Data updated successfully');">
+	<input type='text' name='id' value='<%=data._id%>' hidden>
+
+	<div>NAME:  <input type='text' name='name' placeholder='Full name' value="<%=data.name%>" required><br></div>
+	<div>EMAIL:  <input type='email' name='email' placeholder='something@domain.com' value="<%=data.email%>"required>	<br></div>
+	<div>MOB NO:  <input type='number' name='mob' placeholder='mobile number' value="<%=data.mob%>" required><br></div>
+	<div>DATE OF BIRTH:  <input type='date' name='dob' placeholder='MM-DD-YYYY' value="<%=data.dob%>" required><br></div>
+	<div><input type="reset" value='Reset'></div>
+	<div>
+	<input type="submit" value='Update'></div>
+</form>
+
+
+
+</body>
+</html>
+
